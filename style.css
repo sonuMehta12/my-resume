@@ -1,0 +1,414 @@
+:root {
+  --primary-color: #2e7d32; /* A nice green, adjust as needed */
+  --primary-light-bg: #e0f2f1; /* Lighter green for sidebar bg */
+  --text-color: #212121; /* Darker text for better readability */
+  --text-muted-color: #555753; /* Slightly desaturated muted */
+  --bg-color: #fff;
+  --border-color: #e0e0e0; /* Softer border */
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Improved font stack */
+}
+
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  background-color: #e8eaed; /* Lighter gray page background */
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  padding: 20px 0; /* Only top/bottom padding for body */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.resume-container {
+  display: flex;
+  width: 100%; /* Take full width of its constrained parent for printing */
+  max-width: 1000px; /* Max width of the resume on screen */
+  min-height: 100vh; /* For screen, ensure it can take full height */
+  background-color: var(--bg-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  overflow: hidden; /* Important for border-radius with children */
+}
+
+.sidebar {
+  background-color: var(--primary-light-bg);
+  color: var(--text-color);
+  padding: 28px 24px;
+  width: 36%; /* Fine-tune based on content */
+}
+
+.sidebar .profile-pic-container {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.sidebar .profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--bg-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar .profile-pic-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 C 20 60, 40 60, 60 100 S 100 140, 120 100 S 160 60, 180 100 S 200 100 200 100' stroke='%23A7FFEB' stroke-width='20' fill='none' stroke-opacity='0.4'/%3E%3Cpath d='M0 100 C 20 140, 40 140, 60 100 S 100 60, 120 100 S 160 140, 180 100 S 200 100 200 100' stroke='%2364FFDA' stroke-width='20' fill='none' stroke-opacity='0.4' transform='rotate(15 100 100)'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.sidebar section {
+  margin-bottom: 22px;
+}
+
+.sidebar h3 {
+  color: var(--primary-color);
+  font-size: 1.05em;
+  font-weight: 600;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--primary-color); /* Thinner border */
+  display: flex;
+  align-items: center;
+}
+.sidebar h3 .icon {
+  margin-right: 7px;
+  font-size: 1.1em;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li,
+.sidebar p {
+  font-size: 0.85em;
+  margin-bottom: 7px;
+  word-wrap: break-word;
+  color: var(--text-muted-color); /* Make list items muted by default */
+}
+.sidebar li strong,
+.sidebar .key-achievements li strong {
+  display: block;
+  color: var(--text-color);
+  font-weight: 600;
+  margin-bottom: 2px; /* Space between achievement title and description */
+}
+.sidebar .key-achievements li {
+  /* Ensure achievement description also has default muted color */
+  color: var(--text-muted-color);
+}
+.sidebar li .institution {
+  font-size: 0.9em; /* Relative to parent li */
+  color: var(--text-muted-color);
+}
+.sidebar .contact-item a {
+  color: var(--text-muted-color);
+  text-decoration: none;
+}
+.sidebar .contact-item a:hover {
+  color: var(--primary-color);
+}
+.sidebar .contact-item .icon-inline {
+  /* Style for inline icons */
+  margin-right: 5px;
+  color: var(--primary-color);
+}
+
+.sidebar .skills-list li {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Slightly transparent background */
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 0.9em; /* Relative to parent li */
+  color: var(--text-color);
+  /* box-shadow: 0 1px 2px rgba(0,0,0,0.03); */
+}
+.sidebar .skills-category strong {
+  /* Title for skill category */
+  display: block;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #2c5d30; /* Darker green */
+}
+
+.main-content {
+  padding: 30px 35px;
+  width: 64%; /* Fine-tune */
+}
+
+.main-content header {
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.main-content header h1 {
+  font-size: 2.6em; /* Slightly smaller for better fit */
+  margin: 0;
+  color: #111; /* Darker for name */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.main-content header .tagline {
+  background-color: var(--primary-light-bg);
+  color: var(--primary-color);
+  padding: 6px 12px; /* Slightly smaller padding */
+  border-radius: 4px;
+  font-size: 0.9em; /* Smaller tagline */
+  font-weight: 600;
+  margin-top: 8px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.main-content section {
+  margin-bottom: 28px;
+}
+
+.main-content h2 {
+  color: var(--primary-color);
+  font-size: 1.3em; /* Consistent section title size */
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+}
+.main-content h2 .icon {
+  margin-right: 9px;
+  font-size: 1.2em;
+}
+
+.main-content .experience-item,
+.main-content .education-item,
+.main-content .certifications li {
+  /* Added certifications here */
+  margin-bottom: 18px;
+}
+
+.main-content .experience-item h4 {
+  font-size: 1.05em;
+  margin: 0 0 1px 0;
+  color: var(--text-color);
+  font-weight: 600;
+}
+.main-content .certifications li strong {
+  font-size: 1.05em;
+  color: var(--text-color);
+  font-weight: 600;
+  display: block;
+}
+.main-content .certifications li .institution {
+  font-size: 0.9em;
+  color: var(--text-muted-color);
+}
+
+.main-content .experience-item .company-date {
+  font-size: 0.85em;
+  color: var(--text-muted-color);
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+.main-content .experience-item .company-date .date {
+  font-style: italic;
+}
+.main-content .experience-item .company-date span a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+.main-content .experience-item .company-date span a:hover {
+  text-decoration: underline;
+}
+
+.main-content .experience-item ul {
+  list-style: none; /* Changed from disc for cleaner look */
+  padding-left: 0; /* No indent needed if custom bullets or leading icons */
+  margin: 0;
+}
+.main-content .experience-item ul li {
+  font-size: 0.9em;
+  margin-bottom: 4px;
+  color: var(--text-muted-color);
+  padding-left: 1.2em; /* Space for pseudo-element bullet */
+  position: relative;
+}
+/* Custom bullet points for experience */
+.main-content .experience-item ul li::before {
+  content: "•"; /* Or use an SVG/icon */
+  color: var(--primary-color);
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0px; /* Adjust for vertical alignment */
+}
+
+.main-content .education-item h4 {
+  font-size: 1.05em;
+  margin: 0 0 1px 0;
+  font-weight: 600;
+}
+.main-content .education-item p {
+  margin: 0;
+  font-size: 0.9em;
+  color: var(--text-muted-color);
+}
+.main-content .education-item .date {
+  font-style: italic;
+  font-size: 0.8em;
+  color: var(--text-muted-color);
+}
+.main-content .certifications ul {
+  /* Remove default list styling for certifications */
+  list-style: none;
+  padding: 0;
+}
+
+/* Print specific styles */
+@media print {
+  @page {
+    size: A4; /* Define A4 page size */
+    margin: 1cm; /* Standard margin for A4 */
+  }
+
+  body {
+    padding: 0;
+    background-color: var(
+      --bg-color
+    ) !important; /* White background for print */
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    font-size: 10pt; /* Common print font size */
+  }
+
+  .resume-container {
+    width: 100% !important;
+    max-width: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    display: flex !important; /* Ensure flex is maintained */
+    flex-direction: row !important; /* Ensure columns stay side-by-side */
+    overflow: visible !important; /* Allow content to flow naturally */
+  }
+
+  .sidebar {
+    width: 35% !important; /* Maintain specified width */
+    background-color: var(--primary-light-bg) !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+    padding: 15px !important; /* Slightly reduce padding for print */
+    page-break-inside: avoid !important; /* Try to keep sidebar on one page if possible */
+  }
+  .sidebar .profile-pic-container::before {
+    /* Optionally hide complex SVG for print if it causes issues, or simplify */
+    display: none;
+  }
+
+  .main-content {
+    width: 65% !important; /* Maintain specified width */
+    padding: 15px !important; /* Slightly reduce padding for print */
+    page-break-inside: avoid !important;
+  }
+
+  /* Try to prevent sections from breaking in the middle */
+  section,
+  .experience-item,
+  .education-item,
+  .skills-category {
+    page-break-inside: avoid;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid; /* Prevent headings from being at bottom of page alone */
+  }
+  ul,
+  p {
+    page-break-before: auto; /* Default page breaking for paragraphs and lists */
+  }
+
+  a {
+    /* Ensure links print, but perhaps not underlined unless it's desired */
+    text-decoration: none;
+    color: var(--primary-color) !important; /* Make links stand out */
+  }
+  /* To print URLs next to links:
+            a[href^="http"]::after {
+                content: " (" attr(href) ")";
+                font-size: 0.8em;
+                color: var(--text-muted-color);
+            }
+            */
+  .sidebar .contact-item a {
+    color: var(
+      --text-color
+    ) !important; /* Ensure sidebar link colors are printable */
+  }
+
+  /* Hide elements not meant for print, if any */
+  /* .some-screen-only-element { display: none !important; } */
+
+  /* Font adjustments for print clarity */
+  .main-content header h1 {
+    font-size: 22pt !important;
+  }
+  .main-content header .tagline {
+    font-size: 9pt !important;
+  }
+  .main-content h2 {
+    font-size: 12pt !important;
+    margin-bottom: 8px !important;
+  }
+  .sidebar h3 {
+    font-size: 11pt !important;
+    margin-bottom: 6px !important;
+  }
+  .sidebar li,
+  .sidebar p,
+  .main-content .experience-item ul li,
+  .main-content .education-item p {
+    font-size: 9pt !important;
+    line-height: 1.4 !important;
+  }
+  .footer-credit {
+    display: none !important;
+  } /* Remove footer credit for print */
+}
