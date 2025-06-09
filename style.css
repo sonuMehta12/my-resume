@@ -1,221 +1,255 @@
+/* Basic Reset & Page Setup */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  /* Switched to a cleaner, modern sans-serif font family */
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 10.5pt; /* Slightly increased base font size for readability */
-  line-height: 1.45; /* Improved line height for better text flow */
-  color: #333333; /* Main text color */
-  background: white;
-  max-width: 8.5in;
+  font-size: 8.5pt; /* Reduced base font size */
+  line-height: 1.3; /* Slightly reduced line height */
+  color: #333333;
+  background: #ffffff;
+  width: 8.27in;
+  min-height: 11.69in;
   margin: 0 auto;
-  padding: 0.4in 0.5in; /* Adjusted overall page padding */
+  padding: 0.2in 0.15in; /* Reduced padding */
 }
 
-.header {
-  text-align: left; /* Align header content to the left of the text block */
-  border-bottom: 1.5px solid #cccccc; /* Softened border */
-  padding-bottom: 18px; /* Increased padding */
-  margin-bottom: 22px; /* Increased margin */
-  display: flex;
-  align-items: center;
-  gap: 20px; /* Reduced gap slightly for a tighter header block */
+/* --- HEADER SECTION --- */
+.resume-header {
+  margin-bottom: 15px; /* Reduced margin */
+  padding-bottom: 10px; /* Reduced padding */
+  border-bottom: 1px solid #e0e0e0; /* Reduced border thickness */
 }
 
-.profile-photo {
-  width: 75px; /* Slightly smaller photo */
-  height: 75px;
-  border-radius: 50%;
-  border: 2px solid #3498db; /* Brighter, modern blue */
-  background: #f0f0f0; /* Lighter background */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px; /* Adjusted font size for initials */
+.resume-header .name {
+  font-size: 22pt; /* Reduced font size */
   font-weight: bold;
-  color: #3498db; /* Brighter blue for initials */
-  flex-shrink: 0; /* Prevent photo from shrinking */
+  color: #1a1a1a;
+  margin-bottom: 3px; /* Reduced margin */
 }
 
-.header-text {
-  text-align: left;
+.resume-header .title {
+  font-size: 10pt; /* Reduced font size */
+  color: #007bff;
+  font-weight: 500;
+  margin-bottom: 6px; /* Reduced margin */
 }
 
-.name {
-  font-size: 20pt; /* More prominent name */
-  font-weight: 700; /* Bold weight */
-  color: #2c3e50; /* Darker, professional blue/grey */
-  margin-bottom: 4px; /* Adjusted margin */
-  letter-spacing: 0.5px;
+.contact-info-header {
+  font-size: 8pt; /* Reduced font size */
+  color: #555555;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px; /* Reduced gap */
 }
 
-.title {
-  font-size: 11.5pt; /* Slightly larger title */
-  color: #555555; /* Softer grey for title */
-  margin-bottom: 7px; /* Adjusted margin */
+.contact-info-header span {
+  display: flex;
+  align-items: center;
+}
+.contact-info-header span::before {
+  margin-right: 4px; /* Reduced margin */
+  color: #007bff;
 }
 
-.contact-info {
-  font-size: 9.5pt; /* Slightly larger contact info */
-  color: #4f4f4f; /* Darker grey for better readability */
-  line-height: 1.5; /* Improved line height for multi-line contacts */
-}
-.contact-info a {
-  color: #3498db; /* Consistent link color */
+.contact-info-header a {
+  color: #555555;
   text-decoration: none;
 }
-.contact-info a:hover {
+.contact-info-header a:hover {
   text-decoration: underline;
+  color: #007bff;
 }
 
+/* --- MAIN TWO-COLUMN LAYOUT --- */
+.main-content {
+  display: flex;
+  gap: 25px; /* Reduced gap */
+}
+
+.left-column {
+  flex: 2;
+}
+
+.right-column {
+  flex: 1;
+  padding-top: 3px; /* Reduced padding */
+}
+
+/* --- GENERAL SECTION STYLING --- */
 .section {
-  margin-bottom: 20px; /* Increased spacing between sections */
+  margin-bottom: 14px; /* Reduced margin */
 }
 
 .section-title {
-  font-size: 13pt; /* More prominent section titles */
+  font-size: 10pt; /* Reduced font size */
   font-weight: bold;
-  color: #2c3e50; /* Consistent dark blue/grey for titles */
-  border-bottom: 1px solid #bdc3c7; /* Lighter, thinner border */
-  padding-bottom: 5px; /* Increased padding */
-  margin-bottom: 12px; /* Increased margin */
-  text-transform: uppercase; /* Uppercase for distinction */
-  letter-spacing: 0.5px;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  padding-bottom: 3px; /* Reduced padding */
+  margin-bottom: 8px; /* Reduced margin */
+  border-bottom: 1.5px solid #1a1a1a; /* Reduced border thickness */
+  letter-spacing: 0.4px; /* Reduced letter spacing */
 }
 
+/* --- LEFT COLUMN SECTIONS --- */
+.summary-text {
+  font-size: 8.5pt; /* Reduced font size */
+  line-height: 1.4;
+  color: #444444;
+  text-align: justify;
+}
+
+.job-entry {
+  margin-bottom: 12px; /* Reduced margin */
+}
 .job-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start; /* Align items to the top for multi-line company names */
-  margin-bottom: 4px; /* Increased margin */
+  margin-bottom: 2px; /* Reduced margin */
 }
-
-.job-title {
+.job-title-main {
+  font-size: 10pt; /* Reduced font size */
   font-weight: bold;
-  font-size: 11pt; /* Clear job title size */
-  color: #333333;
+  color: #1a1a1a;
 }
-
-.company {
-  font-style: normal; /* Removing italic for a cleaner look */
-  font-size: 10pt; /* Slightly larger company name */
-  color: #555555;
-  display: block; /* Make company name take its own line if needed */
-  margin-top: 1px;
+.job-company {
+  font-size: 9pt; /* Reduced font size */
+  color: #007bff;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px; /* Reduced margin */
 }
-
-.date {
-  font-size: 9.5pt;
+.job-date-location {
+  font-size: 7.5pt; /* Reduced font size */
   color: #777777;
-  font-style: italic; /* Keep date italic for differentiation */
-  text-align: right; /* Align date to the right */
-  min-width: 100px; /* Ensure enough space for dates */
+  margin-bottom: 4px; /* Reduced margin */
+  display: flex;
+  gap: 8px; /* Reduced gap */
 }
-
-.job-description {
-  /* This can be a brief role summary if used */
-  font-size: 9.5pt;
-  color: #666666;
-  margin-bottom: 5px;
-  font-style: italic;
+.job-date-location span::before {
+  margin-right: 2px; /* Reduced margin */
+  color: #555;
 }
-
+.job-date-location ion-icon {
+  font-size: 9pt; /* Reduced font size */
+  margin-right: 2px; /* Reduced margin */
+}
 .achievements {
-  margin-left: 18px; /* Standardized bullet indent */
-  list-style-type: disc; /* Standard disc bullets */
+  list-style-type: disc;
+  margin-left: 12px; /* Reduced margin */
+  font-size: 8pt; /* Reduced font size */
+  color: #555555;
 }
-
 .achievements li {
-  margin-bottom: 5px; /* Increased spacing between bullet points */
-  font-size: 10pt; /* Consistent bullet point font size */
-  color: #444444; /* Slightly darker text for bullets */
+  margin-bottom: 3px; /* Reduced margin */
+  line-height: 1.3;
 }
 .achievements li strong {
-  /* Highlight for metrics */
-  font-weight: 600; /* Semi-bold for metrics */
+  font-weight: 600;
+  color: #333;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(200px, 1fr)
-  ); /* Responsive columns */
-  gap: 15px 20px; /* Increased gap */
-  margin-top: 8px;
+.education-entry {
+  margin-bottom: 6px; /* Reduced margin */
 }
-
-.skill-category {
-  font-size: 10pt; /* Base size for skill items */
-}
-
-.skill-category-title {
+.education-degree {
+  font-size: 9.5pt; /* Reduced font size */
   font-weight: bold;
-  font-size: 10.5pt; /* Slightly larger skill category title */
-  color: #2c3e50; /* Consistent title color */
-  margin-bottom: 5px; /* Increased margin */
-  display: block; /* Ensure title is on its own line */
+  color: #1a1a1a;
 }
-.skill-category div {
-  /* Styles for the skill items list */
-  line-height: 1.5;
+.education-school {
+  font-size: 8.5pt; /* Reduced font size */
+  color: #007bff;
+  font-weight: 500;
+}
+.education-date-location {
+  font-size: 7.5pt; /* Reduced font size */
+  color: #777777;
+  margin-top: 1px; /* Reduced margin */
+  display: flex;
+  gap: 8px; /* Reduced gap */
+}
+.education-date-location span::before {
+  margin-right: 2px; /* Reduced margin */
   color: #555;
 }
 
-.education-item,
-.portfolio-item {
-  /* Combined for similar styling */
-  margin-bottom: 10px;
+/* --- RIGHT COLUMN SECTIONS --- */
+.key-achievement-item {
+  margin-bottom: 10px; /* Reduced margin */
+  display: flex;
+  align-items: flex-start;
+  font-size: 8pt; /* Reduced font size */
 }
-
-.degree,
-.portfolio-title-main {
-  /* .portfolio-title-main for GoArtful Platform */
+.key-achievement-item .icon {
+  font-size: 11pt; /* Reduced font size */
+  margin-right: 6px; /* Reduced margin */
+  color: #007bff;
+  min-width: 18px; /* Reduced width */
+  padding-top: 0px; /* Adjusted padding */
+}
+.key-achievement-item .text strong {
+  display: block;
   font-weight: bold;
-  font-size: 10.5pt;
-  color: #333;
+  font-size: 8.5pt; /* Reduced font size */
+  color: #222;
+  margin-bottom: 1px; /* Reduced margin */
+}
+.key-achievement-item .text span {
+  color: #555;
+  line-height: 1.2;
 }
 
-.school,
-.portfolio-link-url {
-  /* .portfolio-link-url for the actual link */
-  font-size: 9.5pt;
+.skills-list {
+  /* No bullets for Enhancv skills */
+}
+.skill-item {
+  font-size: 8.5pt; /* Reduced font size */
+  color: #333;
+  padding: 3px 0; /* Reduced padding */
+  border-bottom: 1px solid #f0f0f0;
+  font-weight: 500;
+}
+.skill-item:last-child {
+  border-bottom: none;
+}
+.skill-item-split {
+  display: flex;
+  justify-content: space-between;
+}
+
+.certification-item {
+  margin-bottom: 6px; /* Reduced margin */
+}
+.certification-name {
+  font-size: 8.5pt; /* Reduced font size */
+  font-weight: bold;
+  color: #007bff;
+}
+.certification-details {
+  font-size: 8pt; /* Reduced font size */
   color: #555555;
-  margin-left: 2px; /* Slight indent if needed */
+  line-height: 1.2;
 }
-.portfolio-section {
-  /* Container for portfolio items */
-  margin-top: 5px;
-}
-
-.portfolio-item strong {
-  /* For labels like "GoArtful Platform:" */
-  font-weight: bold;
+.tools-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px; /* Reduced gap */
+  font-size: 8.5pt; /* Reduced font size */
   color: #333;
 }
-
-.portfolio-links a {
-  color: #3498db; /* Consistent link blue */
-  text-decoration: none;
-  font-weight: normal; /* Ensure link text is not overly bold */
-}
-.portfolio-links a:hover {
-  text-decoration: underline;
-}
-.portfolio-note {
-  font-size: 8.5pt;
-  font-style: italic;
-  color: #777;
-  margin-top: 4px;
+.tools-name {
+  background: #f0f0f0;
+  padding: 3px 6px; /* Reduced padding */
+  border-radius: 4px;
+  font-weight: 500;
 }
 
-.summary {
-  text-align: left; /* Standard left alignment is often cleaner than justify */
-  font-size: 10.5pt;
-  line-height: 1.5;
-  color: #444444;
+/* Utility for slight bottom margin on last items */
+.mb-0 {
+  margin-bottom: 0 !important;
 }
